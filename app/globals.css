@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+:root {
+  --main-color: #ff6600;
+  /* البرتقالي الأساسي */
+}
+
+@layer base {
+  .main-text-color {
+    @apply text-orange-500;
+  }
+  .main-bgcolor {
+    @apply bg-orange-500;
+  }
+  .main-brcolor {
+    @apply border-orange-500;
+  }
+  .main-hvbrcolor {
+    @apply hover:border-orange-500;
+  }
+  .main-hvcolor{
+    @apply hover:bg-orange-500;
+  }
+  .main-t-hvcolor{
+    @apply hover:text-orange-500;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
