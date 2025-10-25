@@ -66,11 +66,11 @@ function Footer() {
         </p>
         <p className="mt-12 text-center text-xl text-gray-700 lg:text-center">
           Devoloped by{" "}
-          <a href="https://wa.me/01067039320" className="text-black">
+          <a href="https://wa.me/201067039320" className="text-black">
             Zeyad
           </a>{" "}
           and{" "}
-          <a href="https://wa.me/01012774749" className="text-black">
+          <a href="https://wa.me/201012774749" className="text-black">
             Ahmed
           </a>
         </p>
