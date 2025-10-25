@@ -1,5 +1,4 @@
-// components/ScrollProgressBar.js
-"use client"; // For client-side rendering in Next.js App Router
+"use client";
 
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -12,23 +11,23 @@ export default function ScrollProgressBar() {
 
   useEffect(() => {
     gsap.to(progressBarRef.current, {
-      scaleX: 1.24, 
+      scaleX: 1,
       transformOrigin: "left center",
       ease: "none",
       scrollTrigger: {
         trigger: "body",
         start: "top top",
-        end: "bottom top",
-        scrub: true, 
+        end: "bottom bottom",
+        scrub: true,
       },
     });
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 h-4 bg-gray-300 z-50">
+    <div className="fixed top-0 left-0 right-0 h-2 bg-gray-300 z-50">
       <div
         ref={progressBarRef}
-        className="h-full bg-orange-500 scale-x-0" // Initial scaleX: 0
+        className="h-full bg-orange-500 transform scale-x-0"
       ></div>
     </div>
   );

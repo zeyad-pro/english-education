@@ -1,53 +1,66 @@
 "use client";
 import { useState } from "react";
 
-export default function AuthPage() {
-  const [isLogin, setIsLogin] = useState(true);
+export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Email:", email);
+    console.log("Password:", password);
+  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <div className="bg-white shadow-xl rounded-2xl w-full max-w-md p-8 transition-all duration-500">
-        <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
-          {isLogin ? "تسجيل الدخول" : "إنشاء حساب"}
-        </h2>
+    <div className="min-h-screen border-b flex items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-md w-full max-w-md space-y-6"
+      >
+        <h1 className="text-2xl font-bold text-center text-gray-900 dark:text-white">
+          تسجيل الدخول
+        </h1>
 
-        <form className="space-y-4">
-          {!isLogin && (
-            <input
-              type="text"
-              placeholder="اسم المستخدم"
-              className="w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
-            />
-          )}
+        <div>
+          <label className="block text-gray-700 dark:text-gray-300 mb-2">
+            البريد الإلكتروني
+          </label>
           <input
             type="email"
-            placeholder="البريد الإلكتروني"
-            className="w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full p-3 border rounded-lg dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
           />
+        </div>
+
+        <div>
+          <label className="block text-gray-700 dark:text-gray-300 mb-2">
+            كلمة المرور
+          </label>
           <input
             type="password"
-            placeholder="كلمة المرور"
-            className="w-full border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full p-3 border rounded-lg dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
           />
+        </div>
 
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            {isLogin ? "دخول" : "إنشاء حساب"}
-          </button>
-        </form>
+        <button
+          type="submit"
+          className="w-full bg-orange-500 hover:bg-orange-400 text-white font-bold py-3 rounded-lg transition-colors"
+        >
+          تسجيل الدخول
+        </button>
 
-        <p className="text-center text-gray-600 mt-4">
-          {isLogin ? "ليس لديك حساب؟" : "لديك حساب بالفعل؟"}{" "}
-          <button
-            onClick={() => setIsLogin(!isLogin)}
-            className="text-blue-600 font-semibold hover:underline"
-          >
-            {isLogin ? "أنشئ حسابًا" : "سجل الدخول"}
-          </button>
+        <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
+          ما عندكش حساب؟{" "}
+          <a href="/register" className="text-orange-500 hover:underline">
+            سجل الآن
+          </a>
         </p>
-      </div>
+      </form>
     </div>
   );
 }
